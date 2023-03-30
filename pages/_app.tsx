@@ -3,14 +3,15 @@ import '../styles/globals.css';
 import Head from 'next/head';
 import React from 'react';
 import ym, { YMInitializer } from 'react-yandex-metrika';
+import { Router } from 'next/router';
+
+Router.events.on('routeChangeComplete', (url: string) => {
+  if (typeof window !== 'undefined') {
+    ym('hite', url);
+  }
+});
 
 function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
-  router?.events?.on('routeChangeComplete', (url: string) => {
-    if (typeof window !== 'undefined') {
-      ym('hite', url);
-    }
-  });
-
   return (
     <>
       <Head>

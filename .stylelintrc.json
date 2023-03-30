@@ -11,5 +11,6 @@
         "ignoreShorthands": ["/grid/"]
       }
     ]
-  }
+  },
+  "ignoreFiles": ["out/**/*.css"]
 }
